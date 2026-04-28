@@ -1,0 +1,18 @@
+stages:
+  - build
+  - deploy
+
+build-job:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+
+  script:
+    - docker build -t ci-cd-project .
+
+deploy-job:
+  stage: deploy
+
+  script:
+    - echo "Deploy berhasil selesai"
